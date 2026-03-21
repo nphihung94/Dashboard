@@ -1,0 +1,464 @@
+@define absfull{
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	@absolute;
+}
+
+@define absolute{
+	position:absolute;
+}
+
+@define relative{
+	position:relative;
+}
+
+@define fixed{
+	position:fixed;
+}
+
+@define sticky{
+	position:sticky;
+}
+
+@define content{
+	content:"";
+}
+
+@define fit{
+	top:0px;
+	left:0px;
+	bottom:0px;
+	right:0px;
+}
+
+@define full{
+	width:100%;
+	height:100%;
+}
+
+@define fullw{
+	width:100%;
+}
+
+@define left{
+	float:left;
+}
+
+@define right{
+	float:right;
+}
+
+@define block{
+	display:block;
+}
+
+@define hidden{
+	display:none;
+}
+
+@define clear{
+	overflow:hidden;
+}
+
+@define cell{
+	display:table-cell;
+}
+
+@define inline{
+	display:inline-block;
+}
+
+@define flex{
+	display:flex;
+}
+
+@define iflex{
+	display:inline-flex;
+}
+
+@define vtop{
+	vertical-align:top;	
+}
+
+@define vcenter{
+	vertical-align:middle;	
+}
+
+@define pointer{
+	cursor:pointer;	
+}
+
+@define center{
+	text-align:center;
+}
+
+@define tleft{
+	text-align:left;
+}
+
+@define tright{
+	text-align:right;
+}
+
+@define justify{
+	text-align:justify;
+}
+
+@define bold{
+	font-weight:bold;
+}
+
+@define thin{
+	font-weight:300;
+}
+
+@define thick{
+	font-weight:500;
+}
+
+@define mthick{
+	font-weight:600;
+}
+
+@define italic{
+	font-style:italic;
+}
+
+@define normal{
+	font-weight:normal;
+}
+
+@define underline{
+	text-decoration:underline;
+}
+
+
+@define scroll{
+	overflow-y:scroll;
+	scrollbar-width:8px;
+}
+
+@define borderbox{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@define breakword{
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+@define apxdot{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap: normal;
+}
+
+@define f60{
+	font-size:50px;
+}
+
+@define f55{
+	font-size:55px;
+}
+
+@define f50{
+	font-size:50px;
+}
+
+@define f45{
+	font-size:45px;
+}
+
+@define f40{
+	font-size:40px;
+}
+
+@define f38{
+	font-size:38px;
+}
+
+@define f36{
+	font-size:36px;
+}
+
+@define f34{
+	font-size:34px;
+}
+
+@define f32{
+	font-size:32px;
+}
+
+@define 30px{
+	font-size:30px;
+}
+
+@define f30{
+	font-size:30px;
+}
+
+
+@define 29px{
+	font-size:29px;
+}
+
+@define f29{
+	font-size:29px;
+}
+
+
+
+@define 28px{
+	font-size:28px;
+}
+
+@define f28{
+	font-size:28px;
+}
+
+@define 27px{
+	font-size:27px;
+}
+
+@define f27{
+	font-size:27px;
+}
+
+
+@define 26px{
+	font-size:26px;
+}
+
+@define f26{
+	font-size:26px;
+}
+
+
+
+@define 25px{
+	font-size:25px;
+}
+
+@define f25{
+	font-size:25px;
+}
+
+@define 24px{
+	font-size:24px;
+}
+
+@define f24{
+	font-size:24px;
+}
+
+@define 23px{
+	font-size:23px;
+}
+
+@define f23{
+	font-size:23px;
+}
+
+@define 22px{
+	font-size:22px;
+}
+
+@define f22{
+	font-size:22px;
+}
+
+@define 21px{
+	font-size:21px;
+}
+
+@define f21{
+	font-size:21px;
+}
+
+@define 20px{
+	font-size:20px;
+}
+
+@define f20{
+	font-size:20px;
+}
+
+@define 19px{
+	font-size:19px;
+}
+
+@define f19{
+	font-size:19px;
+}
+
+@define 18px{
+	font-size:18px;
+}
+
+@define f18{
+	font-size:18px;
+}
+
+@define 17px{
+	font-size:17px;
+}
+
+@define f17{
+	font-size:17px;
+}
+
+@define 16px{
+	font-size:16px;
+}
+
+@define f16{
+	font-size:16px;
+}
+
+@define 15px{
+	font-size:15px;
+}
+
+@define f15{
+	font-size:15px;
+}
+
+@define 14px{
+	font-size:14px;
+}
+
+@define f14{
+	font-size:14px;
+}
+
+@define 13px{
+	font-size:13px;
+}
+
+@define f13{
+	font-size:13px;
+}
+
+@define 12px{
+	font-size:12px;
+}
+
+@define f12{
+	font-size:12px;
+}
+
+@define 11px{
+	font-size:11px;
+}
+
+@define f11{
+	font-size:11px;
+}
+
+@define 10px{
+	font-size:10px;
+}
+
+@define f10{
+	font-size:10px;
+}
+
+@define upper{
+	text-transform:uppercase;
+}
+
+@define xo{
+	overflow:hidden;
+}
+
+@define nobreak{
+	white-space: nowrap;
+}
+
+@define nofilter{
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: none;
+}
+
+@define nogradient{
+	background-image:none;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: none;
+}
+
+@define noshadow{
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	-ms-box-shadow:none;
+}
+
+@define xinput{
+	padding:0;
+	margin:0;
+	border:none;
+	background:transparent; 
+}
+
+@define finput{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width:100%;
+	display:block;
+}
+
+@define cover{
+	-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;
+}
+
+@define lucida{
+	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+}
+
+@define cursive{
+	font-family:Comic Sans MS, cursive;
+}
+
+@define cambria{
+	font-family: Cambria, serif;
+}
+
+@define arial{
+	font-family: Arial, san-serif;
+}
+
+@define tahoma{
+	font-family: Helvetica, Tahoma, Arial, san-serif;
+}
+
+@define mono{
+	font-family: Consolas, Courier New, Courier New, monospace;
+}
+
+@define myriad{
+	font-family: Myriad Pro,Arial,Helvetica,sans-serif;
+}
+
+@define palatino{
+	font-family:Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+
+@define rounded{
+	border-radius:3px;
+}
+
+@define circle{
+	border-radius:50%;
+}

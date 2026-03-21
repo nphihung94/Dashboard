@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Dashboard</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Gridstack CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@10/dist/gridstack.min.css" />
+
+  <!-- App CSS (load order matters: tokens first) -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/sidebar-header.css" />
+  <link rel="stylesheet" href="css/pipeline.css" />
+  <link rel="stylesheet" href="css/flow-builder.css" />
+  <link rel="stylesheet" href="css/dashboard-widgets.css" />
+  <link rel="stylesheet" href="css/new-dataset-modal.css" />
+
+  <!-- Widget library CSS -->
+  <link rel="stylesheet" href="../Widget/src/styles/vibe-widget.css" />
+
+  <!-- ExcelFormula library CSS -->
+  <link rel="stylesheet" href="../ExcelFormlua/src/css/excel-formula.css" />
+</head>
+<body>
+
+  <!-- Master Header -->
+  <header class="app-header" id="app-header"></header>
+
+  <!-- Main layout: sidebar + content -->
+  <div class="app-layout">
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <main class="app-main" id="app-main">
+      <!-- Page: Home -->
+      <div id="page-home" class="page"></div>
+
+      <!-- Page: Dashboard -->
+      <div id="page-dashboard" class="page"></div>
+
+      <!-- Page: Dataset -->
+      <div id="page-dataset" class="page"></div>
+
+      <!-- Page: Pipeline (single pipeline view) -->
+      <div id="page-pipeline" class="page"></div>
+
+      <!-- Page: Settings -->
+      <div id="page-settings" class="page"></div>
+
+      <!-- Page: Pipeline Group -->
+      <div id="page-pipeline-group" class="page"></div>
+
+      <!-- Page: Integrations -->
+      <div id="page-integrations" class="page"></div>
+    </main>
+  </div>
+
+  <!-- Toast container (portal) -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Search overlay (portal) -->
+  <div id="search-overlay" class="search-overlay"></div>
+
+  <!-- ═══════════════════════════════════════════
+       CDN dependencies
+       ═══════════════════════════════════════════ -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gridstack@10/dist/gridstack-all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       Widget library (load order critical)
+       ═══════════════════════════════════════════ -->
+  <script src="../Widget/src/core/data-processor.js"></script>
+  <script src="../Widget/src/core/filter-manager.js"></script>
+  <script src="../Widget/src/core/widget-base.js"></script>
+  <script src="../Widget/src/views/view-table.js"></script>
+  <script src="../Widget/src/views/view-pie-chart.js"></script>
+  <script src="../Widget/src/views/view-line-chart.js"></script>
+  <script src="../Widget/src/views/view-bar-chart.js"></script>
+  <script src="../Widget/src/ui/axis-selector.js"></script>
+  <script src="../Widget/src/ui/filter-panel.js"></script>
+  <script src="../Widget/src/ui/drill-breadcrumb.js"></script>
+  <script src="../Widget/src/ui/transaction-modal.js"></script>
+  <script src="../Widget/src/ui/insight-bar.js"></script>
+  <script src="../Widget/src/vibe-widget.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       ExcelFormula library (load order critical)
+       ═══════════════════════════════════════════ -->
+  <script src="../ExcelFormlua/src/js/formula-engine.js"></script>
+  <script src="../ExcelFormlua/src/js/variable-manager.js"></script>
+  <script src="../ExcelFormlua/src/js/formula-sheet-manager.js"></script>
+  <script src="../ExcelFormlua/src/js/api-client.js"></script>
+  <script src="../ExcelFormlua/src/js/excel-formula-api.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       App services (load before components/pages)
+       ═══════════════════════════════════════════ -->
+  <script src="services/formula-evaluator.js"></script>
+  <script src="services/dataset-store.js"></script>
+  <script src="services/dashboard-store.js"></script>
+  <script src="services/pipeline-stages.js"></script>
+  <script src="services/pipeline-engine.js"></script>
+  <script src="services/flow-rule-engine.js"></script>
+  <script src="services/layout-store.js"></script>
+  <script src="services/integration-store.js"></script>
+
+  <!-- Demo data (registers into DatasetStore on load) -->
+  <script src="demo-data/demo-datasets.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       App components
+       ═══════════════════════════════════════════ -->
+  <script src="components/toast.js"></script>
+  <script src="components/search-overlay.js"></script>
+  <script src="components/master-header.js"></script>
+  <script src="components/sidebar.js"></script>
+  <script src="components/widget-card.js"></script>
+  <script src="components/add-widget-modal.js"></script>
+  <script src="components/new-dashboard-modal.js"></script>
+  <script src="components/dashboard-permission-modal.js"></script>
+  <script src="components/pipeline-flow.js"></script>
+  <script src="components/pipeline-config.js"></script>
+  <script src="components/pipeline-run-log.js"></script>
+  <script src="components/stage-type-picker.js"></script>
+  <script src="components/stage-config-panel.js"></script>
+  <script src="components/new-dataset-modal.js"></script>
+  <script src="components/google-sso-handler.js"></script>
+  <script src="components/new-connection-modal.js"></script>
+  <script src="components/dataset-source-pipeline.js"></script>
+  <script src="components/dataset-source-file.js"></script>
+  <script src="components/dataset-source-integration.js"></script>
+  <script src="components/dataset-source-api.js"></script>
+  <script src="components/dataset-source-database.js"></script>
+
+  <!-- Flow Builder components (load order: forms → panels → ops → shell) -->
+  <script src="components/flow-builder/stage-rule-forms.js"></script>
+  <script src="components/flow-builder/stage-rule-forms-filter.js"></script>
+  <script src="components/flow-builder/stage-rule-forms-select.js"></script>
+  <script src="components/flow-builder/stage-rule-forms-advanced.js"></script>
+  <script src="components/flow-builder/stage-preview-table.js"></script>
+  <script src="components/flow-builder/source-stage-panel.js"></script>
+  <script src="components/flow-builder/transform-stage-panel.js"></script>
+  <script src="components/flow-builder/flow-builder-stage-ops.js"></script>
+  <script src="components/flow-builder/flow-builder-left-panel-html.js"></script>
+  <script src="components/flow-builder/flow-builder-left-panel.js"></script>
+  <script src="components/flow-builder/flow-builder-overlays.js"></script>
+  <script src="components/flow-builder/flow-builder-shell.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       App pages
+       ═══════════════════════════════════════════ -->
+  <script src="pages/page-home.js"></script>
+  <script src="pages/page-dashboard.js"></script>
+  <script src="pages/page-dashboards-list.js"></script>
+  <script src="pages/page-dataset.js"></script>
+  <script src="pages/page-pipeline.js"></script>
+  <script src="pages/page-pipeline-group.js"></script>
+  <script src="pages/page-settings.js"></script>
+  <script src="pages/page-integrations.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       App entry point (must be last)
+       ═══════════════════════════════════════════ -->
+  <script src="app.js"></script>
+
+</body>
+</html>

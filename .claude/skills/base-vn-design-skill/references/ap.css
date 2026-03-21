@@ -1,0 +1,400 @@
+/** CSS FRAMEWORK TO SUPPORT AP **/
+/** Hung Pham, 23-5-2011 **/
+
+
+html, body{
+	padding:0;
+	margin:0;
+}
+
+
+/** MOST COMMON CLASS **/
+.input-blur {
+	color: #777;
+}
+.input-focus {
+	color: #222529;
+	font-weight:normal;
+}
+.absolute, .ap-absolute {
+	position: absolute;
+}
+.relative, .ap-relative {
+	position: relative;
+}
+.shadow, .ap-shadow {
+	text-shadow: 1px -1px 0px #111111;
+}
+.left, .ap-left{
+	float: left;
+}
+.right, .ap-right {
+	float: right;
+}
+.test, .ap-test {
+	border: 1px solid red;
+}
+.pointer, .ap-pointer {
+	cursor: pointer !IMPORTANT;
+}
+.clear, .ap-clear {
+	clear: both !IMPORTANT
+}
+.italic, .ap-italic {
+	font-style: italic;
+}
+.normal, .ap-normal {
+	font-weight: normal !IMPORTANT;
+}
+.bold, .ap-bold {
+	font-weight: bold !IMPORTANT;
+}
+.thick, .ap-thick {
+	@thick;
+}
+.underline, .ap-underline {
+	text-decoration: underline;
+}
+.hidden, .ap-hidden {
+	display: none;
+}
+.inline ,.ap-inline{
+	display:inline-block;
+}
+.invisible, .ap-invisible {
+	opacity:0;
+	filter:alpha(opacity=0));
+}
+.textleft, .ap-textleft {
+	text-align: left;
+}
+.textright, .ap-textright {
+	text-align: right;
+}
+.center, .ap-center {
+	text-align: center;
+}
+.justify, .ap-justify {
+	text-align: justify;
+}
+.full, .ap-full {
+	width: 100%;
+}
+.inline, .ap-inline {
+	display: inline-block;
+}
+.block, .ap-block {
+	display: block;
+}
+.italic, .ap-italic{
+	@italic;
+}
+.upper, .ap-upper{
+	@upper;
+}
+.capitalize, .ap-capitalize{
+	text-transform:capitalize;
+}
+.xo, .ap-xo{
+	@xo;
+}
+.xdot, .ap-xdot{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap: normal;
+}
+.line, .ap-line {
+	height:1px;
+	width:100%;
+	background:#ccc;
+	float:left;
+}
+.wline, .ap-wline {
+	height:1px;
+	width:100%;
+	background:#fff;
+	display:block;
+}
+.corner, .ap-corner{
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+.corner-more, .ap-corner-more{
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+.corner-xmore, .ap-corner-xmore{
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+	border-radius:16px;
+}
+.no-shadow, .ap-no-shadow{
+	box-shadow: 0px 0px 0px transparent !important;
+	-moz-box-shadow: 0px 0px 0px transparent !important;
+	-webkit-shadow: 0px 0px 0px transparent !important;
+}
+.vtop td, .ap-vtop td{
+	vertical-align:top;
+}
+
+.unselectable, .ap-unselectable{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.ap-1fix{
+	width:1px;
+}
+
+
+/*color*/
+.white, .ap-white {
+	color:#fff !important;
+}
+.black, .ap-black {
+	color:#000 !important;
+}
+.red, .ap-red {
+	color: [#CC1111|#A33333] !important;
+}
+/*end color*/
+
+
+/* THE FLOAT MODEL */
+/* ------------------------------------------------------------- */
+.ap-left{float:left !important;}
+.ap-right{float:right !important;}
+.ap-xfloat{float:none !important;}
+.ap-clearfix{
+	overflow:hidden;
+}
+.ap-xo, .xo{overflow:hidden}
+.ap-xflow{overflow:hidden}
+
+
+
+/* THE POSITION AND DISPLAY MODEL */
+/* ------------------------------------------------------------- */
+.ap-abs, .ap-absolute{position:absolute;}
+.ap-rel, .ap-relative{position:relative;}
+.ap-fix, .ap-fixed{position:fixed;}
+.ap-sta, .ap-static{position:static;}
+
+.hidden, .ap-hidden{display:none}
+.ap-block{display:block}
+.ap-iblock{display:inline-block}
+
+.ap-arial, .arial{@arial;}
+.ap-tahoma, .tahoma{@tahoma;}
+.ap-myriad, .myriad{@myriad;}
+.ap-cambria, .cambria{@cambria;}
+
+
+
+/* THE FONT-SIZE MODEL */
+/* ------------------------------------------------------------- */
+.ap-f9{font-size:9px;}
+.ap-f10{font-size:10px;}
+.ap-f11{font-size:11px;}
+.ap-f12{font-size:12px;}
+.ap-f13{font-size:13px;}
+.ap-f14{font-size:14px;}
+.ap-f15{font-size:15px;}
+.ap-f16{font-size:16px;}
+.ap-f17{font-size:17px;}
+.ap-f18{font-size:18px;}
+.ap-f19{font-size:19px;}
+.ap-f20{font-size:20px;}
+.ap-f21{font-size:21px;}
+.ap-f22{font-size:22px;}
+.ap-f23{font-size:23px;}
+.ap-f24{font-size:24px;}
+.ap-f25{font-size:25px;}
+.ap-f26{font-size:26px;}
+.ap-f27{font-size:27px;}
+.ap-f28{font-size:28px;}
+.ap-f29{font-size:29px;}
+.ap-f30{font-size:30px;}
+.ap-f32{font-size:32px;}
+.ap-f34{font-size:34px;}
+.ap-f35{font-size:35px;}
+.ap-f36{font-size:36px;}
+.ap-f38{font-size:38px;}
+.ap-f40{font-size:40px;}
+.ap-f50{font-size:50px;}
+
+
+/* THE LINE-HEIGHT */
+.ap-lh13{line-height:13px;}
+.ap-lh14{line-height:14px;}
+.ap-lh15{line-height:15px;}
+.ap-lh16{line-height:16px;}
+.ap-lh17{line-height:17px;}
+.ap-lh18{line-height:18px;}
+.ap-lh19{line-height:19px;}
+.ap-lh20{line-height:20px;}
+
+
+
+/* GENERAL SIZE MODEL */
+/* ------------------------------------------------------------- */
+/* THE RELATIVE SIZE */
+.ap-full{width:100%; height:100%;}
+.ap-haft{width:50%; height:50%;}
+.ap-full-x{width:100%;}
+.ap-full-y{height:100%;}
+
+
+
+
+
+.clear-fix:after{
+	content:" ";
+	clear:both;
+	@block;
+}
+
+.full-mask{@absolute; width:100%; height:100%; top:0px; left:0px;}
+.pull-left{@absolute; top:0px; left:0px;height:100%;}
+.pull-right{@absolute; top:0px; right:0px;height:100%;}
+.pull-up{@absolute; top:0px; left:0px;width:100%;}
+.pull-down{@absolute; bottom:0px; left:0px;width:100%;}
+.top-left{@absolute; top:0px; left:0px;}
+.top-right{@absolute; top:0px; right:0px;}
+.strike{text-decoration:line-through;}
+
+
+
+
+.emotion{
+	vertical-align:middle;	
+
+}
+
+img.__emotion{
+	display:inline-block;
+	margin-top:-2px;
+}
+
+
+.__app_zcanvas{
+	position:fixed;
+	width:100%;
+	height:100%;
+	overflow:auto;
+	$bg: #000 0.5;
+	z-index:1000;
+	display:none;
+	top:0px;
+	left:0px;
+}
+
+.__app_xcanvas{
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+
+textarea { overflow: auto; }
+
+em{
+	font-style:normal;
+}
+
+a.std:hover, .a.std:hover{
+	@underline;
+}
+
+
+
+
+
+.scroll-y{
+	overflow-y:auto;
+}
+
+.scroll-y.forced-scroll{
+	overflow-y:scroll !important;
+}
+
+.scroll-x.forced-scroll{
+	overflow-x:scroll !important;
+}
+
+
+
+.scroll-y::-webkit-scrollbar{
+	width: 10px;
+}
+  
+.scroll-y.-smaller::-webkit-scrollbar, .elegant-scroll-y::-webkit-scrollbar{
+	width:8px;
+	scrollbar-width:thin;
+}
+
+.scroll-y.-tiny::-webkit-scrollbar{
+	width:6px;
+}
+
+.scroll-y::-webkit-scrollbar-thumb, .elegant-scroll-y::-webkit-scrollbar-thumb{
+	background: #aaa; 
+}
+
+.scroll-y::-webkit-scrollbar-track, .elegant-scroll-y::-webkit-scrollbar-track{
+  	$bg:#ddd; 
+}
+
+.scroll-y::-webkit-scrollbar-track:hover, .elegant-scroll-y::-webkit-scrollbar-track:hover{
+	background: rgba(0,0,0,0.2); 
+}
+
+
+.elegant-scroll-x{
+	overflow-y:scroll;
+	scrollbar-width:thin;
+}
+
+.elegant-scroll-x::-webkit-scrollbar{
+	height:8px;
+}
+.elegant-scroll-x::-webkit-scrollbar-thumb{
+  background: #aaa; 
+}
+
+.elegant-scroll-y::-webkit-scrollbar-track{
+  	$bg:#ddd; 
+}
+
+.elegant-scroll-x::-webkit-scrollbar-track:hover{
+	background: rgba(0,0,0,0.2); 
+}
+
+
+
+.scroll-x{
+	overflow-x:scroll;
+}
+
+.scroll-x::-webkit-scrollbar{
+	height: 10px;
+}
+ 
+.scroll-x::-webkit-scrollbar-thumb{
+  $bg: [--subtext-color, #999]; 
+}
+
+.scroll-x::-webkit-scrollbar-track{
+  	$bg: [--bg-color-active, #e6e6e6]; 
+}
+
+.scroll-x::-webkit-scrollbar-track:hover{
+	background: [--bg-color, rgba(0,0,0,0.2)]; 
+}

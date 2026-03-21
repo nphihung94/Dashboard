@@ -1,0 +1,115 @@
+/**
+ * tokens.css
+ * CSS custom properties — design tokens for Vibe Dashboard.
+ * Based on Base.vn V0.2 color system + local overrides.
+ * No preprocessor macros — plain CSS custom properties only.
+ */
+
+:root {
+  /* ── Layout ── */
+  --sidebar-width: 220px;
+  --header-height: 42px;
+
+  /* ── Brand ── */
+  --color-brand: #1E88E5;
+  --color-brand-hover: #1976D2;
+  --color-brand-light: rgba(30, 136, 229, 0.18);
+
+  /* ── Neutral backgrounds ── */
+  --color-bg: #F1F3F5;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F8F9FA;
+
+  /* ── Sidebar ── */
+  --sidebar-bg: #FFFFFF;
+  --sidebar-text: #5B5B5B;
+  --sidebar-text-muted: #8F8F8F;
+  --sidebar-active-bg: rgba(30, 136, 229, 0.10);
+  --sidebar-active-accent: #1E88E5;
+  --sidebar-hover: rgba(0, 0, 0, 0.04);
+
+  /* ── Borders ── */
+  --color-border: #E8E8E8;
+  --color-border-strong: #D0D0D0;
+
+  /* ── Text ── */
+  --color-text-1: #343434;
+  --color-text-2: #5B5B5B;
+  --color-text-3: #8F8F8F;
+  --color-text-disabled: #C2C2C2;
+
+  /* ── Status colors ── */
+  --color-success-bg: #E8F5E9;
+  --color-success-text: #2E7D32;
+  --color-error-bg: #FFEBEE;
+  --color-error-text: #C62828;
+  --color-warn-bg: #FFFDE7;
+  --color-warn-text: #F57F17;
+  --color-info-bg: #E3F2FD;
+  --color-info-text: #1565C0;
+
+  /* ── Status dots ── */
+  --color-dot-healthy: #4CAF50;
+  --color-dot-warning: #FF9800;
+  --color-dot-error: #F44336;
+  --color-dot-draft: #FFA229;
+
+  /* ── Spacing ── */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+
+  /* ── Border radius ── */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.14);
+
+  /* ── Typography ── */
+  --font-family: 'Inter', sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-kpi: 32px;
+
+  /* ── Pipeline stage node colors ── */
+  --stage-source: #1565C0;
+  --stage-remove-columns: #7B1FA2;
+  --stage-filter-rows: #6A1B9A;
+  --stage-replace-values: #7B1FA2;
+  --stage-group-by: #00695C;
+  --stage-add-column: #283593;
+  --stage-sort: #AD1457;
+  --stage-merge: #E65100;
+  --stage-pivot: #4A148C;
+  --stage-unpivot: #880E4F;
+  --stage-output: #1B5E20;
+
+  /* ── Data type badge colors ── */
+  --type-badge-string:  #1565C0;
+  --type-badge-number:  #2E7D32;
+  --type-badge-date:    #F57F17;
+  --type-badge-boolean: #6A1B9A;
+
+  /* ── Flow builder transitions ── */
+  --flow-transition-fast: 150ms;
+  --flow-transition-normal: 200ms;
+
+  /* ── Z-index layers ── */
+  --z-sidebar: 100;
+  --z-header: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-overlay: 250;
+}

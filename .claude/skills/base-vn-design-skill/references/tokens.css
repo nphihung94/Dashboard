@@ -1,0 +1,384 @@
+/* =============================================================
+   Base.vn Design System V0.2 — tokens.css
+   Copy this file to your project root and import it first.
+   ============================================================= */
+
+:root {
+
+  /* ─── GLOBAL SPACING SCALE ─────────────────────────────── */
+  --spacing-0:  0px;
+  --spacing-2:  2px;
+  --spacing-4:  4px;
+  --spacing-6:  6px;
+  --spacing-8:  8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+
+  /* ─── VERTICAL GAP ALIASES ──────────────────────────────── */
+  --gap-vertical-v-none:    var(--spacing-0);
+  --gap-vertical-v-small:   var(--spacing-2);
+  --gap-vertical-v-xsmall:  var(--spacing-4);
+  --gap-vertical-v-2xsmall: var(--spacing-6);
+  --gap-vertical-v-3xsmall: var(--spacing-8);
+  --gap-vertical-v-4xsmall: var(--spacing-10);
+  --gap-vertical-v-medium:  var(--spacing-12);
+  --gap-vertical-v-large:   var(--spacing-16);
+  --gap-vertical-v-xlarge:  var(--spacing-20);
+  --gap-vertical-v-2xlarge: var(--spacing-24);
+  --gap-vertical-v-3xlarge: var(--spacing-32);
+
+  /* ─── HORIZONTAL GAP ALIASES ────────────────────────────── */
+  --gap-horizontal-h-none:    var(--spacing-0);
+  --gap-horizontal-h-small:   var(--spacing-2);
+  --gap-horizontal-h-xsmall:  var(--spacing-4);
+  --gap-horizontal-h-2xsmall: var(--spacing-6);
+  --gap-horizontal-h-3xsmall: var(--spacing-8);
+  --gap-horizontal-h-4xsmall: var(--spacing-10);
+  --gap-horizontal-h-medium:  var(--spacing-12);
+  --gap-horizontal-h-large:   var(--spacing-16);
+  --gap-horizontal-h-xlarge:  var(--spacing-20);
+  --gap-horizontal-h-2xlarge: var(--spacing-24);
+  --gap-horizontal-h-3xlarge: var(--spacing-32);
+
+  /* ─── PADDING ALIASES ───────────────────────────────────── */
+  --gap-padding-p-none:    var(--spacing-0);
+  --gap-padding-p-small:   var(--spacing-2);
+  --gap-padding-p-xsmall:  var(--spacing-4);
+  --gap-padding-p-2xsmall: var(--spacing-6);
+  --gap-padding-p-3xsmall: var(--spacing-8);
+  --gap-padding-p-4xsmall: var(--spacing-10);
+  --gap-padding-p-medium:  var(--spacing-12);
+  --gap-padding-p-large:   var(--spacing-16);
+  --gap-padding-p-xlarge:  var(--spacing-20);
+  --gap-padding-p-2xlarge: var(--spacing-24);
+  --gap-padding-p-3xlarge: var(--spacing-32);
+
+  /* ─── RADIUS SCALE ──────────────────────────────────────── */
+  --radius-r-none:   0px;
+  --radius-r-small:  2px;
+  --radius-r-xsmall: 4px;
+  --radius-r-2xsmall: 6px;
+  --radius-r-3xsmall: 8px;
+  --radius-r-medium: 12px;
+  --radius-r-large:  16px;
+  --radius-r-xlarge: 9999px;
+
+  /* ─── ICON SIZES ────────────────────────────────────────── */
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 28px;
+  --icon-size-2xl: 32px;
+
+  /* ═══════════════════════════════════════════════════════════
+     NEUTRAL COLORS — BACKGROUND
+     ═══════════════════════════════════════════════════════════ */
+  --color-neutral-background-1-default:  #FFFFFF;
+  --color-neutral-background-1-hover:    #FFFFFF;
+  --color-neutral-background-1-pressed:  #FFFFFF;
+  --color-neutral-background-1-selected: #FFFFFF;
+
+  --color-neutral-background-disable:    #F0F0F0;
+  --color-neutral-background-inverted:   #3A3A3A;
+  --color-neutral-background-static:     #484848;
+  --color-neutral-background-alpha-default: #FFFFFF;
+  --color-neutral-background-alpha-hover:   #FFFFFF;
+  --color-neutral-background-alpha-press:   #FFFFFF;
+
+  /* ─── NEUTRAL COLORS — STROKE ───────────────────────────── */
+  --color-neutral-stroke-1-default:      #FFFFFF;
+  --color-neutral-stroke-2-hover:        #FFFFFF;
+  --color-neutral-stroke-3-pressed:      #FFFFFF;
+
+  --color-neutral-stroke-inside-1-default:  #FFFFFF;
+  --color-neutral-stroke-inside-1-hover:    #FFFFFF;
+  --color-neutral-stroke-inside-1-pressed:  #FFFFFF;
+  --color-neutral-stroke-inside-1-selected: #FFFFFF;
+
+  --color-neutral-stroke-inside-2-default:  #FFFFFF;
+  --color-neutral-stroke-inside-2-selected: #FFFFFF;
+
+  --color-neutral-stroke-focus:    #FFFFFF;
+  --color-neutral-stroke-alpha:    #FFFFFF;
+  --color-neutral-stroke-brand:    #FFFFFF;
+  --color-neutral-stroke-disable:  #FFFFFF;
+
+  /* ─── NEUTRAL COLORS — TEXT ─────────────────────────────── */
+  --color-neutral-text-1-default:  #343434;
+  --color-neutral-text-1-hover:    #343434;
+  --color-neutral-text-1-pressed:  #343434;
+  --color-neutral-text-1-selected: #343434;
+
+  --color-neutral-text-2-default:  #5B5B5B;
+  --color-neutral-text-2-hover:    #484848;
+  --color-neutral-text-2-pressed:  #484848;
+  --color-neutral-text-2-selected: #484848;
+
+  --color-neutral-text-3-default:  #757575;
+  --color-neutral-text-3-hover:    #5B5B5B;
+  --color-neutral-text-3-pressed:  #5B5B5B;
+  --color-neutral-text-3-selected: #5B5B5B;
+
+  --color-neutral-text-4-default:  #8F8F8F;
+  --color-neutral-text-4-hover:    #828282;
+  --color-neutral-text-4-pressed:  #828282;
+  --color-neutral-text-4-selected: #828282;
+
+  --color-neutral-text-brand-default:  #1E88E5;
+  --color-neutral-text-brand-hover:    #186DB7;
+  --color-neutral-text-brand-pressed:  #0C365C;
+  --color-neutral-text-brand-selected: #125289;
+
+  --color-neutral-text-disable:   #C2C2C2;
+  --color-neutral-text-inverted:  #FFFFFF;
+  --color-neutral-text-static:    #FFFFFF;
+  --color-neutral-text-alpha:     #FFFFFF;
+
+  /* ─── NEUTRAL COLORS — ICON ─────────────────────────────── */
+  --color-neutral-icon-1-default:  #343434;
+  --color-neutral-icon-1-hover:    #343434;
+  --color-neutral-icon-1-pressed:  #343434;
+  --color-neutral-icon-1-selected: #343434;
+
+  --color-neutral-icon-2-default:  #5B5B5B;
+  --color-neutral-icon-2-hover:    #484848;
+  --color-neutral-icon-2-pressed:  #484848;
+  --color-neutral-icon-2-selected: #484848;
+
+  --color-neutral-icon-3-default:  #757575;
+  --color-neutral-icon-3-hover:    #5B5B5B;
+  --color-neutral-icon-3-pressed:  #5B5B5B;
+  --color-neutral-icon-3-selected: #5B5B5B;
+
+  --color-neutral-icon-4-default:  #8F8F8F;
+  --color-neutral-icon-4-hover:    #828282;
+  --color-neutral-icon-4-pressed:  #828282;
+  --color-neutral-icon-4-selected: #828282;
+
+  --color-neutral-icon-brand-default:  #1E88E5;
+  --color-neutral-icon-brand-hover:    #186DB7;
+  --color-neutral-icon-brand-pressed:  #0C365C;
+  --color-neutral-icon-brand-selected: #125289;
+
+  --color-neutral-icon-disable:  #C2C2C2;
+  --color-neutral-icon-inverted: #FFFFFF;
+  --color-neutral-icon-static:   #FFFFFF;
+  --color-neutral-icon-alpha:    #FFFFFF;
+
+  /* ─── NEUTRAL COLORS — LINK ─────────────────────────────── */
+  --color-neutral-link-default:  #1E88E5;
+  --color-neutral-link-hover:    #186DB7;
+  --color-neutral-link-pressed:  #0C365C;
+  --color-neutral-link-selected: #125289;
+
+  /* ═══════════════════════════════════════════════════════════
+     BRAND COLOR — BLUE
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Background */
+  --color-brand-background-1-default:  #1E88E5;
+  --color-brand-background-1-hover:    #186DB7;
+  --color-brand-background-1-pressed:  #0C365C;
+  --color-brand-background-1-selected: #125289;
+
+  --color-brand-background-2-default:  #F1F8FE;
+  --color-brand-background-2-hover:    #E3F0FC;
+  --color-brand-background-2-pressed:  #C6E1F8;
+  --color-brand-background-2-selected: #E3F0FC;
+
+  --color-brand-background-disable:  #F0F0F0;
+  --color-brand-background-inverted: #3A3A3A;
+  --color-brand-background-static:   #484848;
+  --color-brand-background-alpha:    #FFFFFF;
+
+  /* Stroke */
+  --color-brand-stroke-focus-default-1: #343434;
+  --color-brand-stroke-focus-default-2: #B8DBFF;
+  --color-brand-stroke-focus-disable:   #D0D0D0;
+
+  /* Text */
+  --color-brand-text-1-default: #FFFFFF;
+  --color-brand-text-1-disable: #8EC3F2;
+
+  --color-brand-text-2-default:  #1E88E5;
+  --color-brand-text-2-hover:    #186DB7;
+  --color-brand-text-2-pressed:  #125289;
+  --color-brand-text-2-selected: #1E88E5;
+
+  /* Icon */
+  --color-brand-icon-default: #FFFFFF;
+  --color-brand-icon-disable: #8EC3F2;
+
+  /* ═══════════════════════════════════════════════════════════
+     STATUS — CRITICAL (Red)
+     ═══════════════════════════════════════════════════════════ */
+  --color-status-critical-background-1-default:  #FFFFFF;
+  --color-status-critical-background-1-hover:    #FFF5F5;
+  --color-status-critical-background-1-pressed:  #DCF9EB;
+  --color-status-critical-background-1-selected: #FFECEB;
+  --color-status-critical-background-2-default:  #FFECEB;
+  --color-status-critical-background-2-hover:    #FFD8D6;
+  --color-status-critical-background-2-pressed:  #FFBBB8;
+  --color-status-critical-background-2-selected: #FFC5C2;
+  --color-status-critical-background-3-default:  #FF473D;
+  --color-status-critical-background-3-hover:    #ED1307;
+  --color-status-critical-background-3-pressed:  #990800;
+  --color-status-critical-background-3-selected: #CC0A00;
+  --color-status-critical-background-disable:    #FFF5F5;
+
+  --color-status-critical-text-1-default:  #FF473D;
+  --color-status-critical-text-1-hover:    #ED1307;
+  --color-status-critical-text-1-pressed:  #990800;
+  --color-status-critical-text-1-selected: #CC0A00;
+  --color-status-critical-text-disable:    #FFBBB8;
+
+  --color-status-critical-icon-1-default:  #FF473D;
+  --color-status-critical-icon-1-hover:    #ED1307;
+  --color-status-critical-icon-1-pressed:  #990800;
+  --color-status-critical-icon-1-selected: #CC0A00;
+  --color-status-critical-icon-disable:    #FFBBB8;
+
+  --color-status-critical-stroke-1-default: #ED1307;
+  --color-status-critical-stroke-inside:    #FFBBB8;
+  --color-status-critical-stroke-focus:     #FFD8D6;
+  --color-status-critical-stroke-disable:   #FFF5F5;
+
+  /* ═══════════════════════════════════════════════════════════
+     STATUS — SUCCESS (Green)
+     ═══════════════════════════════════════════════════════════ */
+  --color-status-success-background-1-default:  #FFFFFF;
+  --color-status-success-background-1-hover:    #EEFCF5;
+  --color-status-success-background-1-pressed:  #C2F4DB;
+  --color-status-success-background-1-selected: #DCF9EB;
+  --color-status-success-background-2-default:  #EEFCF5;
+  --color-status-success-background-2-pressed:  #86EAB8;
+  --color-status-success-background-2-selected: #C2F4DB;
+  --color-status-success-background-3-default:  #21B66B;
+  --color-status-success-background-3-hover:    #1DA461;
+  --color-status-success-background-3-pressed:  #12683D;
+  --color-status-success-background-3-selected: #188B52;
+  --color-status-success-background-disable:    #F6FDFA;
+
+  --color-status-success-text-1-default:  #21B66B;
+  --color-status-success-text-1-hover:    #1DA461;
+  --color-status-success-text-1-pressed:  #12683D;
+  --color-status-success-text-1-selected: #188B52;
+  --color-status-success-text-disable:    #5AE29E;
+
+  --color-status-success-icon-1-default:  #21B66B;
+  --color-status-success-icon-1-hover:    #1DA461;
+  --color-status-success-icon-1-pressed:  #12683D;
+  --color-status-success-icon-1-selected: #188B52;
+  --color-status-success-icon-disable:    #5AE29E;
+
+  --color-status-success-stroke-1-default: #1DA461;
+  --color-status-success-stroke-inside:    #A4EFC9;
+  --color-status-success-stroke-focus:     #C2F4DB;
+  --color-status-success-stroke-disable:   #F6FDFA;
+
+  /* ═══════════════════════════════════════════════════════════
+     STATUS — ATTENTION (Yellow)
+     ═══════════════════════════════════════════════════════════ */
+  --color-status-attention-background-1-default:  #FFFFFF;
+  --color-status-attention-background-1-hover:    #FFFBE0;
+  --color-status-attention-background-1-pressed:  #FFF399;
+  --color-status-attention-background-1-selected: #FFF7B8;
+  --color-status-attention-background-2-default:  #FFFBE0;
+  --color-status-attention-background-2-hover:    #FFF7B8;
+  --color-status-attention-background-2-pressed:  #FFF185;
+  --color-status-attention-background-2-selected: #FFF399;
+  --color-status-attention-background-3-default:  #FFE419;
+  --color-status-attention-background-3-hover:    #F0D400;
+  --color-status-attention-background-3-pressed:  #C7B000;
+  --color-status-attention-background-3-selected: #FFE419;
+  --color-status-attention-background-disable:    #FFFBE0;
+
+  --color-status-attention-text-1-default:  #F0D400;
+  --color-status-attention-text-1-hover:    #C7B000;
+  --color-status-attention-text-1-pressed:  #756700;
+  --color-status-attention-text-1-selected: #9E8C00;
+  --color-status-attention-text-disable:    #FFEB52;
+
+  --color-status-attention-icon-1-default:  #F0D400;
+  --color-status-attention-icon-1-hover:    #C7B000;
+  --color-status-attention-icon-1-pressed:  #756700;
+  --color-status-attention-icon-1-selected: #9E8C00;
+  --color-status-attention-icon-disable:    #FFEB52;
+
+  --color-status-attention-stroke-1-default: #F0D400;
+  --color-status-attention-stroke-inside:    #FFF399;
+  --color-status-attention-stroke-focus:     #FFF185;
+  --color-status-attention-stroke-disable:   #FFFEF5;
+
+  /* ═══════════════════════════════════════════════════════════
+     STATUS — WARNING (Orange)
+     ═══════════════════════════════════════════════════════════ */
+  --color-status-warning-background-1-default:  #FFFFFF;
+  --color-status-warning-background-1-hover:    #FFFBF5;
+  --color-status-warning-background-1-pressed:  #FFEDD6;
+  --color-status-warning-background-1-selected: #FFECD6;
+  --color-status-warning-background-2-default:  #FFEDD6;
+  --color-status-warning-background-2-hover:    #FFE0B8;
+  --color-status-warning-background-2-pressed:  #FFD7A3;
+  --color-status-warning-background-2-selected: #FFE0B8;
+  --color-status-warning-background-3-default:  #FFA229;
+  --color-status-warning-background-3-hover:    #E07F00;
+  --color-status-warning-background-3-pressed:  #7A4500;
+  --color-status-warning-background-3-selected: #A35C00;
+  --color-status-warning-background-disable:    #FFC170;
+
+  --color-status-warning-text-1-default:  #E07F00;
+  --color-status-warning-text-1-hover:    #A35C00;
+  --color-status-warning-text-1-pressed:  #522E00;
+  --color-status-warning-text-1-selected: #7A4500;
+  --color-status-warning-text-disable:    #FFC170;
+
+  --color-status-warning-icon-1-default:  #E07F00;
+  --color-status-warning-icon-1-hover:    #A35C00;
+  --color-status-warning-icon-1-pressed:  #522E00;
+  --color-status-warning-icon-1-selected: #7A4500;
+  --color-status-warning-icon-disable:    #FFC170;
+
+  --color-status-warning-stroke-1-default: #E07F00;
+  --color-status-warning-stroke-inside:    #FFD7A3;
+  --color-status-warning-stroke-focus:     #FFE0B8;
+  --color-status-warning-stroke-disable:   #FFFBF5;
+
+  /* ═══════════════════════════════════════════════════════════
+     STATUS — INFO (Blue)
+     ═══════════════════════════════════════════════════════════ */
+  --color-status-info-background-1-default:  #FFFFFF;
+  --color-status-info-background-1-hover:    #F7FAFD;
+  --color-status-info-background-1-pressed:  #DDEBF8;
+  --color-status-info-background-1-selected: #EEF5FC;
+  --color-status-info-background-2-default:  #DDEBF8;
+  --color-status-info-background-2-hover:    #C4DBF3;
+  --color-status-info-background-2-pressed:  #A6CAED;
+  --color-status-info-background-2-selected: #C4DBF3;
+  --color-status-info-background-3-default:  #2773BE;
+  --color-status-info-background-3-hover:    #2366A9;
+  --color-status-info-background-3-pressed:  #153D66;
+  --color-status-info-background-3-selected: #1C5287;
+  --color-status-info-background-disable:    #EEF5FC;
+
+  --color-status-info-text-1-default:  #2179AB;
+  --color-status-info-text-1-hover:    #1C5287;
+  --color-status-info-text-1-pressed:  #0E2944;
+  --color-status-info-text-1-selected: #153D66;
+  --color-status-info-text-disable:    #5E9FDE;
+
+  --color-status-info-icon-1-default:  #2179AB;
+  --color-status-info-icon-1-hover:    #1C5287;
+  --color-status-info-icon-1-pressed:  #0E2944;
+  --color-status-info-icon-1-selected: #153D66;
+  --color-status-info-icon-disable:    #5E9FDE;
+
+  --color-status-info-stroke-1-default: #2366A9;
+  --color-status-info-stroke-inside:    #A6CAED;
+  --color-status-info-stroke-focus:     #A6CAED;
+  --color-status-info-stroke-disable:   #FFFBF5;
+}

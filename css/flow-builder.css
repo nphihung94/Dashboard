@@ -1,0 +1,873 @@
+/**
+ * flow-builder.css
+ * Styles for the Data Flow Builder 2-column layout.
+ * All values use design tokens from css/tokens.css.
+ * Upgraded to ui-ux-pro-max + Base.vn standards:
+ *   - Stage tokens for icon colors, dot tokens for status
+ *   - Accordion with active/hover/expanded states + error pulse
+ *   - Context menu fade-in + left-accent hover
+ *   - Slide-in drawer with cubic-bezier + clickable backdrop
+ *   - Focus-visible outlines, prefers-reduced-motion support
+ */
+
+/* ══════════════════════════════════════
+   2-COLUMN LAYOUT
+   ══════════════════════════════════════ */
+
+.flow-builder {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg);
+}
+
+.flow-builder.is-expanded {
+  grid-template-columns: 0 1fr;
+}
+
+.flow-builder__left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.flow-builder__right {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-subtle);
+}
+
+/* ══════════════════════════════════════
+   LEFT PANEL
+   ══════════════════════════════════════ */
+
+.flow-left__header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-12);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  gap: var(--spacing-8);
+  min-height: 44px;
+}
+
+.flow-left__stages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.flow-left__footer {
+  padding: var(--spacing-8) var(--spacing-12);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ── Accordion stage items ── */
+
+.flow-left__stage-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.flow-left__stage-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-12);
+  cursor: pointer;
+  user-select: none;
+  border-left: 2px solid transparent;
+  min-height: 38px;
+  transition:
+    background var(--flow-transition-fast) ease,
+    border-color var(--flow-transition-fast) ease;
+}
+
+.flow-left__stage-header:hover {
+  background: var(--color-surface-subtle);
+}
+
+/* Active (currently configured stage) */
+.flow-left__stage-item.is-active > .flow-left__stage-header {
+  background: var(--sidebar-active-bg);
+  border-left-color: var(--color-brand);
+}
+
+.flow-left__stage-item.is-active .flow-left__stage-name {
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+/* Expanded accordion body */
+.flow-left__stage-body {
+  padding: var(--spacing-8) var(--spacing-12) var(--spacing-12) 34px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-subtle);
+}
+
+/* ── Stage type icon badges ── */
+
+.flow-left__stage-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background: var(--color-brand);
+}
+
+/* Stage type colors — use design system stage tokens */
+.flow-left__stage-icon.head-source         { background: var(--stage-source); }
+.flow-left__stage-icon.head-filter-rows    { background: var(--stage-filter-rows); }
+.flow-left__stage-icon.head-remove-columns { background: var(--stage-remove-columns); }
+.flow-left__stage-icon.head-group-by       { background: var(--stage-group-by); }
+.flow-left__stage-icon.head-sort           { background: var(--stage-sort); }
+.flow-left__stage-icon.head-output         { background: var(--stage-output); }
+.flow-left__stage-icon.head-add-column     { background: var(--stage-add-column); }
+.flow-left__stage-icon.head-pivot          { background: var(--stage-pivot); }
+.flow-left__stage-icon.head-unpivot        { background: var(--stage-unpivot); }
+
+/* ── Stage name ── */
+
+.flow-left__stage-name {
+  flex: 1;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--flow-transition-fast) ease;
+}
+
+/* ── Chevron ── */
+
+.flow-left__chevron {
+  font-size: 8px;
+  color: var(--color-text-3);
+  transition: transform var(--flow-transition-normal) ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.flow-left__stage-item.is-expanded .flow-left__chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Stage summary + review button ── */
+
+.flow-left__stage-summary {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-2);
+  margin: 0 0 var(--spacing-8);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.flow-review-btn:disabled,
+.flow-review-btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Status dots ── */
+
+.flow-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-dot-draft);
+  flex-shrink: 0;
+  transition: background var(--flow-transition-fast) ease;
+}
+
+.flow-status-dot.is-saved {
+  background: var(--color-dot-healthy);
+  box-shadow: 0 0 0 2px var(--color-success-bg);
+}
+
+.flow-status-dot.is-error {
+  background: var(--color-dot-error);
+  box-shadow: 0 0 0 2px var(--color-error-bg);
+  animation: flow-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes flow-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* ── Add Stage button ── */
+
+.flow-add-stage-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-12);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-3);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition:
+    border-color var(--flow-transition-fast) ease,
+    color var(--flow-transition-fast) ease,
+    background var(--flow-transition-fast) ease;
+}
+
+.flow-add-stage-btn:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background: var(--color-brand-light);
+}
+
+/* ── Run button ── */
+
+.flow-run-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+/* ══════════════════════════════════════
+   RIGHT PANEL — CONFIG
+   ══════════════════════════════════════ */
+
+.flow-config-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+}
+
+.flow-config-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-16);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+.flow-config-title {
+  flex: 1;
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  color: var(--color-text-1);
+  letter-spacing: -0.01em;
+}
+
+.flow-config-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.fbs-panel-host {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.flow-empty-state {
+  padding: var(--spacing-32) var(--spacing-24);
+  text-align: center;
+  color: var(--color-text-3);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   ADD STAGE — CONTEXT MENU
+   ══════════════════════════════════════ */
+
+.flow-context-menu {
+  position: absolute;
+  z-index: 100;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-4) 0;
+  min-width: 240px;
+  animation: flow-menu-in var(--flow-transition-fast) ease-out;
+}
+
+@keyframes flow-menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.flow-context-menu__item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-8) var(--spacing-16);
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition:
+    background 100ms ease,
+    border-color 100ms ease;
+}
+
+.flow-context-menu__item:hover {
+  background: var(--color-surface-subtle);
+  border-left-color: var(--color-brand);
+}
+
+.flow-context-menu__name {
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  color: var(--color-text-1);
+}
+
+.flow-context-menu__desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-3);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════
+   BACKDROP + SLIDE-IN DRAWER
+   ══════════════════════════════════════ */
+
+/* Semi-transparent backdrop — clickable, fades in with drawer */
+.flow-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 40;
+  cursor: default;
+  transition: background var(--flow-transition-normal) ease;
+}
+
+.flow-backdrop.is-open {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.flow-preview-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(600px, 100%);
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.flow-preview-drawer.is-open {
+  transform: translateX(0);
+}
+
+.flow-preview-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  color: var(--color-text-1);
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+.flow-preview-drawer__body {
+  flex: 1;
+  overflow: auto;
+  padding: var(--spacing-16);
+}
+
+/* ══════════════════════════════════════
+   SOURCE STAGE PANEL
+   ══════════════════════════════════════ */
+
+.fss-panel {
+  padding: var(--spacing-16) var(--spacing-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.fss-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.fss-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-1);
+  flex: 1;
+}
+
+.fss-section-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-3);
+  letter-spacing: 0.05em;
+  margin-top: var(--spacing-4);
+}
+
+.fss-search-row {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+.fss-search-row .fss-search { flex: 1; }
+.fss-quick-add { white-space: nowrap; flex-shrink: 0; }
+
+.fss-dataset-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-8);
+  background: var(--color-surface);
+}
+
+.fss-dataset-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: background var(--flow-transition-fast) ease;
+}
+
+.fss-dataset-item:hover { background: var(--color-surface-subtle); }
+.fss-ds-name  { flex: 1; font-weight: 500; }
+.fss-ds-meta  { font-size: var(--font-size-xs); color: var(--color-text-3); }
+
+.fss-schema-row  { display: flex; gap: var(--spacing-12); flex-wrap: wrap; }
+
+.fss-schema-card {
+  flex: 1;
+  min-width: 160px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.fss-schema-title {
+  padding: var(--spacing-4) var(--spacing-12);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  background: var(--color-surface-subtle);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-2);
+}
+
+.fss-merge-config {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-12);
+  background: var(--color-surface);
+}
+
+.fss-key-row { display: flex; gap: var(--spacing-12); flex-wrap: wrap; }
+.fss-key-row .form-group { flex: 1; min-width: 120px; }
+
+.fss-output-preview {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-surface);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-2);
+}
+
+/* ══════════════════════════════════════
+   TRANSFORM STAGE PANEL
+   ══════════════════════════════════════ */
+
+.tsp-panel {
+  padding: var(--spacing-16) var(--spacing-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.tsp-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.tsp-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-1);
+  flex: 1;
+}
+
+.tsp-input-schema {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-8) var(--spacing-12);
+  line-height: 1.6;
+}
+
+.tsp-schema-label {
+  font-weight: 600;
+  color: var(--color-text-3);
+  margin-right: var(--spacing-4);
+}
+
+.tsp-form-area {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.flow-form--readonly input,
+.flow-form--readonly select,
+.flow-form--readonly textarea {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════════════
+   INLINE RULE FORMS
+   ══════════════════════════════════════ */
+
+.srf-logic-toggle {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+
+.srf-cond-list,
+.srf-formula-list,
+.srf-agg-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+.srf-cond-row,
+.srf-formula-row,
+.srf-agg-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-wrap: wrap;
+}
+
+.srf-select-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 3px 0;
+  font-size: var(--font-size-base);
+}
+
+.srf-sel-name { flex: 1; }
+
+/* ══════════════════════════════════════
+   SCHEMA TABLE
+   ══════════════════════════════════════ */
+
+.schema-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-xs);
+}
+
+.schema-table th,
+.schema-table td {
+  padding: var(--spacing-4) var(--spacing-8);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.schema-table th {
+  background: var(--color-surface-subtle);
+  font-weight: 600;
+  color: var(--color-text-3);
+}
+
+.schema-type { color: var(--color-text-3); font-style: italic; }
+
+/* ══════════════════════════════════════
+   RULE SUMMARY
+   ══════════════════════════════════════ */
+
+.rule-summary {
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: var(--font-size-xs);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-8) var(--spacing-12);
+  color: var(--color-text-2);
+  margin-bottom: var(--spacing-8);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* ══════════════════════════════════════
+   ACCESSIBILITY
+   ══════════════════════════════════════ */
+
+.flow-left__stage-header:focus-visible,
+.flow-add-stage-btn:focus-visible,
+.flow-run-btn:focus-visible,
+.flow-context-menu__item:focus-visible,
+.flow-review-btn:focus-visible,
+.flow-expand-btn:focus-visible,
+.flow-preview-drawer__close:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Data Type Badges ── */
+.flow-type-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  min-width: 16px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 0 3px;
+  color: #fff;
+  background: var(--type-badge-string);
+  margin-right: var(--spacing-4);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.flow-type-badge--number  { background: var(--type-badge-number); }
+.flow-type-badge--date    { background: var(--type-badge-date); }
+.flow-type-badge--boolean { background: var(--type-badge-boolean); }
+
+/* ── Row Count & Error on Stage Items ── */
+.flow-row-count {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-3);
+  margin-top: var(--spacing-4);
+}
+.flow-row-count__value {
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+.flow-stage-error-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-error-text);
+  background: var(--color-error-bg);
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-sm);
+  margin-top: var(--spacing-4);
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* ── Inline Validation Errors ── */
+.flow-error-banner {
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-dot-error);
+  margin-bottom: var(--spacing-12);
+  line-height: 1.5;
+}
+.flow-error-banner__item {
+  margin: var(--spacing-4) 0;
+}
+.flow-error-banner__item:first-child {
+  margin-top: 0;
+}
+.flow-error-banner__item::before {
+  content: '\26A0';
+  margin-right: var(--spacing-4);
+}
+.form-input.is-invalid,
+.form-select.is-invalid,
+select.is-invalid {
+  border-color: var(--color-dot-error) !important;
+  box-shadow: 0 0 0 1px var(--color-error-bg);
+}
+
+.flow-inline-error {
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-text);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-8) var(--spacing-12);
+  margin: var(--spacing-8) var(--spacing-16);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-left__stage-header,
+  .flow-left__chevron,
+  .flow-add-stage-btn,
+  .flow-preview-drawer,
+  .flow-backdrop,
+  .flow-context-menu,
+  .flow-context-menu__item,
+  .flow-status-dot {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ── Stage Reorder & Duplicate Controls (Phase 3) ── */
+.flow-step-index {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-3);
+  min-width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.flow-stage-move-btn {
+  background: none;
+  border: none;
+  padding: 0 3px;
+  cursor: pointer;
+  color: var(--color-text-3);
+  font-size: 9px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity var(--flow-transition-fast) ease, color var(--flow-transition-fast) ease;
+}
+.flow-left__stage-header:hover .flow-stage-move-btn { opacity: 1; }
+.flow-stage-move-btn:hover { color: var(--color-brand); }
+.flow-stage-move-btn:disabled { opacity: 0.2; cursor: default; }
+
+.flow-stage-opts-btn {
+  background: none; border: none; padding: 0 4px;
+  cursor: pointer; color: var(--color-text-3); font-size: 14px;
+  opacity: 0;
+  transition: opacity var(--flow-transition-fast) ease;
+}
+.flow-left__stage-header:hover .flow-stage-opts-btn { opacity: 1; }
+
+.flow-stage-mini-menu {
+  position: absolute; right: 8px; top: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 90;
+  min-width: 120px;
+  padding: var(--spacing-4) 0;
+}
+.flow-stage-mini-menu__item {
+  padding: var(--spacing-8) var(--spacing-12);
+  cursor: pointer; font-size: var(--font-size-sm);
+  color: var(--color-text-1);
+}
+.flow-stage-mini-menu__item:hover { background: var(--color-surface-subtle); }
+
+/* ══════════════════════════════════════
+   FORM UX — COLUMN SEARCH (Phase 4)
+   ══════════════════════════════════════ */
+
+.srf-col-search-wrap {
+  padding: var(--spacing-4) 0 var(--spacing-8);
+}
+.srf-col-search-wrap .srf-col-search {
+  width: 100%;
+}
+/* Visually hides non-matching rows; collectSelect() still iterates all rows */
+.srf-select-row.is-hidden {
+  display: none;
+}
+
+/* ══════════════════════════════════════
+   FORM UX — STEP CONTEXT (Phase 4)
+   ══════════════════════════════════════ */
+
+.tsp-step-context {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-3);
+  font-weight: 400;
+  margin-right: var(--spacing-4);
+}
+
+/* ══════════════════════════════════════
+   PREVIEW PAGINATION (Phase 5)
+   ══════════════════════════════════════ */
+
+.flow-preview-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.flow-preview-limit {
+  font-size: var(--font-size-xs);
+  padding: 2px var(--spacing-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-2);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ══════════════════════════════════════
+   DRAWER STATS (Phase 5)
+   ══════════════════════════════════════ */
+
+.flow-drawer-stats {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-3);
+  font-weight: 400;
+  margin-left: var(--spacing-8);
+  flex: 1;
+}
+
+/* ══════════════════════════════════════
+   EMPTY STATE GUIDE (Phase 5)
+   ══════════════════════════════════════ */
+
+.flow-empty-guide {
+  padding: var(--spacing-32) var(--spacing-24);
+  color: var(--color-text-3);
+}
+
+.flow-empty-guide__step {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-12);
+  line-height: 1.6;
+}
